@@ -1,0 +1,21 @@
+name: Action Name
+
+on: [push, pull_request]
+
+jobs:
+   build_and_test:
+      name: Build&Test job
+      runs-on: ubuntu-20.04
+      steps:
+         - name: Print a greeting
+           env:
+              NAME: Mona
+           run: |
+              echo Hello $NAME.
+         - name: Checkout repository
+           uses: actions/checkout@v2
+         - name: Upload Artifact
+           uses: actions/upload-artifact@v2
+           with:
+              name: artefact
+              path: hello.py
