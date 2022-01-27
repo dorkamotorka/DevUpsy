@@ -11,6 +11,10 @@ jobs:
            uses: actions/checkout@v2
            with:
               fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags
+         - id: version
+           uses: pozetroninc/github-action-get-latest-release@master
+           with:
+              repository: ${{ github.repository }}
          - name: Generate changelog
            uses: scottbrenner/generate-changelog-action@master
            id: Changelog
@@ -20,8 +24,8 @@ jobs:
            env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
            with:
-              tag_name: ${{ github.ref }}
-              release_name: Release ${{ github.ref }}
+              tag_name: Tag X 
+              release_name: Release X
               body: |
                  ${{ steps.Changelog.outputs.changelog }}
               draft: false
