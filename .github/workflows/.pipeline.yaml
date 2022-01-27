@@ -14,5 +14,8 @@ jobs:
       steps:
          - name: Checkout source code
            uses: actions/checkout@v2
+         - name: Run ls
+           run: |
+              ls && ls .github/workflows
          - name: Run Python specific pipeline
-           uses: ./.github/workflows/.python_pipe.yaml@master
+           uses: ./.github/workflows/.python_pipe.yaml
