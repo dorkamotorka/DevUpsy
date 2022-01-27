@@ -20,8 +20,8 @@ jobs:
            env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
            with:
-              tag_name: Tag X 
-              release_name: Release X
+              tag_name: "Tag X" 
+              release_name: "Release X"
               body: |
                  ${{ steps.Changelog.outputs.changelog }}
               draft: false
