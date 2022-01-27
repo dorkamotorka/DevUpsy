@@ -11,6 +11,9 @@ jobs:
            uses: actions/checkout@v2
            with:
               fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags
+         - name: version
+           run: echo "::set-output name=version::$(./bin/azblogfilter --version)"
+           id: version
          - name: Generate changelog
            uses: scottbrenner/generate-changelog-action@master
            id: Changelog
@@ -20,8 +23,8 @@ jobs:
            env:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
            with:
-              tag_name: "Tag X" 
-              release_name: "Release X"
+              tag_name: Tag ${{ steps.version.outputs.version }}
+              release_name: Release ${{ steps.version.outputs.version }}
               body: |
                  ${{ steps.Changelog.outputs.changelog }}
               draft: false
