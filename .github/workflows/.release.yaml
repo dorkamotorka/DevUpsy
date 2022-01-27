@@ -1,0 +1,28 @@
+name: Create a new Release
+
+on: workflow_dispatch
+
+jobs:
+   create_release:
+      name: Create a new Release
+      runs-on: ubuntu-latest
+      steps:
+         - name: Checkout code
+           uses: actions/checkout@v2
+           with:
+              fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags
+         - name: Generate changelog
+           uses: scottbrenner/generate-changelog-action@master
+           id: Changelog
+         - name: Create Release
+           id: create_release
+           uses: actions/create-release@latest
+           env:
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions
+           with:
+              tag_name: ${{ github.ref }}
+              release_name: Release ${{ github.ref }}
+              body: |
+                 ${{ steps.Changelog.outputs.changelog }}
+              draft: false
+              prerelease: false

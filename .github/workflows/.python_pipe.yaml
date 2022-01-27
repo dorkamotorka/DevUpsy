@@ -1,0 +1,21 @@
+name: Python specific pipeline
+
+on: workflow_call
+
+jobs:
+   run_python_pipeline:
+      name: Run Python specific pipeline
+      runs-on: ubuntu-latest
+      steps:
+         - name: Install pipenv
+           run: pipx install pipenv
+         - uses: actions/setup-python@v2
+           with:
+              python-version: '3.x'
+              cache: 'pipenv'
+         - name: Setup pipenv environment
+           run: pipenv install
+         - uses: psf/black@stable
+         - name: Run tests with code coverage
+           run: |
+              pipenv pytest --cache-clear --cov /tests > pytest-coverage.txt

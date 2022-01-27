@@ -1,0 +1,16 @@
+name: CI/CD Pipeline 
+
+on:
+   push:
+      branches:
+         - 'master'
+      paths-ignore:
+         - '**.md'
+
+jobs:
+   run_pipeline:
+      name: Run CI/CD Pipeline
+      runs-on: ubuntu-latest
+      steps:
+         - uses: actions/checkout@v2
+         - uses: ./.python_pipe.yaml
