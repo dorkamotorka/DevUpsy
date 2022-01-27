@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 black = "*"
+pytest-cov = "*"
+pytest = "*"
 
 [dev-packages]
 
