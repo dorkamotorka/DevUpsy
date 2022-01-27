@@ -1,0 +1,19 @@
+{
+  "name": "devupsy",
+  "version": "1.0.0",
+  "description": "DevOps related ",
+  "main": "commitlint.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tp4348/DevUpsy.git"
+  },
+  "author": "Teo Podobnik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tp4348/DevUpsy/issues"
+  },
+  "homepage": "https://github.com/tp4348/DevUpsy#readme"
+}
