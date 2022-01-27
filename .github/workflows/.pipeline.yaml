@@ -12,5 +12,7 @@ jobs:
       name: Run CI/CD Pipeline
       runs-on: ubuntu-latest
       steps:
-         - uses: actions/checkout@v2
-         - uses: ./.python_pipe.yaml
+         - name: Checkout source code
+           uses: actions/checkout@v2
+         - name: Run Python specific pipeline
+           uses: ./.github/workflows/.python_pipe.yaml@master

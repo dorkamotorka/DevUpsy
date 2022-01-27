@@ -7,6 +7,7 @@ jobs:
       name: Run Python specific pipeline
       runs-on: ubuntu-latest
       steps:
+         - uses: actions/checkout@v2
          - name: Install pipenv
            run: pipx install pipenv
          - uses: actions/setup-python@v2
