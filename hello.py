@@ -1,3 +1,8 @@
 #!/usr/bin/env python
 
-print("Hello world")
+def hello():
+    print("Hello world")
+    return True
+
+if __name__ == '__main__':
+    hello()
