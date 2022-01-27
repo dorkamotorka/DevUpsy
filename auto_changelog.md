@@ -15,6 +15,11 @@ If you projects root consist of a valid **package.json** file, than you can invo
 
 	changelog generate
 
-which generates a CHANGELOG.md file.
+which generates a CHANGELOG.md file. It's good practice to run that locally, since you might have to edit some commites or remove them from the changelog list.
 
 Note that before running I had conventional commits setup using **commitlint** and **Husky**.
+
+## Integration with GitHub Actions
+
+You can also add it to your GitHub Actions pipeline, automating it on events of your preference.
+I have added a simple example to this repository under **.github/workflows/.release.yaml**
