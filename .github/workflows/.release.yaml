@@ -11,10 +11,6 @@ jobs:
            uses: actions/checkout@v2
            with:
               fetch-depth: 0 # Number of commits to fetch. 0 indicates all history for all branches and tags
-         - id: version
-           uses: pozetroninc/github-action-get-latest-release@master
-           with:
-              repository: ${{ github.repository }}
          - name: Generate changelog
            uses: scottbrenner/generate-changelog-action@master
            id: Changelog
