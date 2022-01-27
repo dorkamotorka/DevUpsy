@@ -15,4 +15,4 @@ jobs:
          - name: Checkout source code
            uses: actions/checkout@v2
          - name: Run Python specific pipeline
-           uses: ./.github/workflows/.python_pipe.yaml@master
+           uses: ./.github/workflows/.python_pipe.yaml
