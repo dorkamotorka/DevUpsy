@@ -22,4 +22,5 @@ Note that before running I had conventional commits setup using **commitlint** a
 ## Integration with GitHub Actions
 
 You can also add it to your GitHub Actions pipeline, automating it on events of your preference.
-I have added a simple example to this repository under **.github/workflows/.release.yaml**
+I have added a simple example to this repository under **.github/workflows/.release.yaml**. 
+Note that this action needs to be manually dispatched.
