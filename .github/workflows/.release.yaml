@@ -8,6 +8,11 @@ on:
             required: true
             default: false
             type: boolean
+         draftRelease:
+            description: 'Draft a release'
+            required: false
+            default: false
+            type: boolean
          releaseTitle:
             description: 'Release title'
             required: true
@@ -28,9 +33,6 @@ jobs:
            uses: mathieudutour/github-tag-action@v6.0
            with:
               github_token: ${{ secrets.GITHUB_TOKEN }}
-         - name: Generate changelog
-           uses: scottbrenner/generate-changelog-action@master
-           id: Changelog
          - name: Create Release
            id: create_release
            uses: actions/create-release@latest
@@ -42,3 +44,4 @@ jobs:
               body: |
                  ${{ steps.tag_version.outputs.changelog }}
               prerelease: ${{ github.event.inputs.preRelease }}
+              draft: ${{ github.event.inputs.draftRelease }}
