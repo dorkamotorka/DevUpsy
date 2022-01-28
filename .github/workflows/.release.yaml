@@ -40,5 +40,5 @@ jobs:
               tag_name: ${{ steps.tag_version.outputs.new_tag }}
               release_name: ${{ github.event.inputs.releaseTitle }} ${{ steps.tag_version.outputs.new_tag }}
               body: |
-                 ${{ steps.Changelog.outputs.changelog }}
+                 ${{ steps.tag_version.outputs.changelog }}
               prerelease: ${{ github.event.inputs.preRelease }}
