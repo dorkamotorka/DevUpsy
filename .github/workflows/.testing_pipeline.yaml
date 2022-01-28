@@ -1,7 +1,7 @@
 name: Dispatch Issue/Test request
 
 on:
-   pull_request:
+   push:
       branches:
          - 'master'
       paths-ignore:
@@ -16,6 +16,7 @@ jobs:
            uses: mathieudutour/github-tag-action@v6.0
            with:
               github_token: ${{ secrets.GITHUB_TOKEN }}
+              dry_run: true
          - name: Create an issue
            uses: actions-ecosystem/action-create-issue@v1
            with:
