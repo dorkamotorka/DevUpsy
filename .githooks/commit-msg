@@ -1,3 +1,4 @@
 #!/bin/sh
 
+# Lint commit message according to convention
 npx --no -- commitlint --edit "$1"
