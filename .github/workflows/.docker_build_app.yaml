@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: listendev/action@v0.10
       with:
-        ci: true
+        ci: only
         jwt: ${{ secrets.LSTN_API_KEY }}
     
     - name: checkout
