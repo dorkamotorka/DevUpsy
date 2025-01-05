@@ -6,16 +6,16 @@ on:
   pull_request:
     branches: [ master ]
 
+permissions:
+  pull-requests: write
+
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: listendev/action@v0.10
-      with:
-        ci: only
-        jwt: ${{ secrets.LSTN_API_KEY }}
+    - name: Workflow Telemetry
+      uses: catchpoint/workflow-telemetry-action@v2.0.0
     
     - name: checkout
       uses: actions/checkout@v2
